@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAA95F3F1D25BA53009FA590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA95F3E1D25BA53009FA590 /* AppDelegate.swift */; };
+		DAA95F411D25BA53009FA590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA95F401D25BA53009FA590 /* ViewController.swift */; };
+		DAA95F441D25BA53009FA590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA95F421D25BA53009FA590 /* Main.storyboard */; };
+		DAA95F461D25BA53009FA590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA95F451D25BA53009FA590 /* Assets.xcassets */; };
+		DAA95F491D25BA53009FA590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAA95F471D25BA53009FA590 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DAA95F3B1D25BA53009FA590 /* ContactsInvite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsInvite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAA95F3E1D25BA53009FA590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DAA95F401D25BA53009FA590 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DAA95F431D25BA53009FA590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAA95F451D25BA53009FA590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAA95F481D25BA53009FA590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DAA95F4A1D25BA53009FA590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAA95F381D25BA53009FA590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAA95F321D25BA53009FA590 = {
+			isa = PBXGroup;
+			children = (
+				DAA95F3D1D25BA53009FA590 /* ContactsInvite */,
+				DAA95F3C1D25BA53009FA590 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAA95F3C1D25BA53009FA590 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAA95F3B1D25BA53009FA590 /* ContactsInvite.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAA95F3D1D25BA53009FA590 /* ContactsInvite */ = {
+			isa = PBXGroup;
+			children = (
+				DAA95F3E1D25BA53009FA590 /* AppDelegate.swift */,
+				DAA95F401D25BA53009FA590 /* ViewController.swift */,
+				DAA95F421D25BA53009FA590 /* Main.storyboard */,
+				DAA95F451D25BA53009FA590 /* Assets.xcassets */,
+				DAA95F471D25BA53009FA590 /* LaunchScreen.storyboard */,
+				DAA95F4A1D25BA53009FA590 /* Info.plist */,
+			);
+			path = ContactsInvite;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAA95F3A1D25BA53009FA590 /* ContactsInvite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAA95F4D1D25BA53009FA590 /* Build configuration list for PBXNativeTarget "ContactsInvite" */;
+			buildPhases = (
+				DAA95F371D25BA53009FA590 /* Sources */,
+				DAA95F381D25BA53009FA590 /* Frameworks */,
+				DAA95F391D25BA53009FA590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContactsInvite;
+			productName = ContactsInvite;
+			productReference = DAA95F3B1D25BA53009FA590 /* ContactsInvite.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAA95F331D25BA53009FA590 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Montchat;
+				TargetAttributes = {
+					DAA95F3A1D25BA53009FA590 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = DAA95F361D25BA53009FA590 /* Build configuration list for PBXProject "ContactsInvite" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAA95F321D25BA53009FA590;
+			productRefGroup = DAA95F3C1D25BA53009FA590 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAA95F3A1D25BA53009FA590 /* ContactsInvite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAA95F391D25BA53009FA590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAA95F491D25BA53009FA590 /* LaunchScreen.storyboard in Resources */,
+				DAA95F461D25BA53009FA590 /* Assets.xcassets in Resources */,
+				DAA95F441D25BA53009FA590 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAA95F371D25BA53009FA590 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAA95F411D25BA53009FA590 /* ViewController.swift in Sources */,
+				DAA95F3F1D25BA53009FA590 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DAA95F421D25BA53009FA590 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAA95F431D25BA53009FA590 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DAA95F471D25BA53009FA590 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAA95F481D25BA53009FA590 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAA95F4B1D25BA53009FA590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAA95F4C1D25BA53009FA590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAA95F4E1D25BA53009FA590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ContactsInvite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Montchat.ContactsInvite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DAA95F4F1D25BA53009FA590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ContactsInvite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Montchat.ContactsInvite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAA95F361D25BA53009FA590 /* Build configuration list for PBXProject "ContactsInvite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAA95F4B1D25BA53009FA590 /* Debug */,
+				DAA95F4C1D25BA53009FA590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAA95F4D1D25BA53009FA590 /* Build configuration list for PBXNativeTarget "ContactsInvite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAA95F4E1D25BA53009FA590 /* Debug */,
+				DAA95F4F1D25BA53009FA590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAA95F331D25BA53009FA590 /* Project object */;
+}
