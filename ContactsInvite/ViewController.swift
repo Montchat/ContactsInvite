@@ -31,23 +31,29 @@ class User {
     let email:Email!
     let phoneNumber:PhoneNumber?
     
-    var following:[User]?
-    var followers:[User]?
+    var following:[User]!
+    var followers:[User]!
     
     init(name:Name, email:Email, phoneNumber: PhoneNumber?) {
         self.name = name
         self.email = email
         self.phoneNumber = phoneNumber
         
+        following = []
+        followers = []
+        
     }
     
     func follow(user:User) {
+        following.append(user)
         
     }
     
 }
 
 class ContactsCell : UITableViewCell {
+    
+    
     
 }
 
