@@ -95,6 +95,18 @@ extension ViewController : UITableViewDataSource {
     
     func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewData  {
         
+        /*
+         im going to have to write this one out. theres a lot that we have to cover here because of the way that you would normally query for a data base.
+         
+         there are a few things that we need to get here: 
+         1) who the user is following
+         2) the users contacts and all associated emails
+         3) use this to query all of the emails associated with the user --> we will have to simulate this with logic
+ 
+        */
+        
+        
+        // 1. who the user is following
         let userFollowing:[User] = currentUser.following
         let userFollowingEmails:[Email]!
         
@@ -104,11 +116,23 @@ extension ViewController : UITableViewDataSource {
             
         }
         
+        let userContacts:[Contact] = currentUser.contacts
+        let contactEmails:[Email]! 
+        
+        for contact in userContacts {
+            let emails = contact.emails
+            for email in emails {
+                contactEmails.append(email)
+                
+            }
+            
+        }
+        
+        
         let allUserEmails:[Email]
         
         for user in allUsers {
             allUserEmails.append(user.email)
-            
         }
         
     }
