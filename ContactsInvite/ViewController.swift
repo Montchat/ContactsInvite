@@ -71,6 +71,11 @@ class ViewController: UIViewController {
         
         currentUser = OurPhoneUser(username: "Karl", email: "Karl@mail.com", phoneNumber: "(555) - 555 - 5555", contacts: contacts, following: following, followers: followers)
         
+        for contact in currentUser.contacts {
+            print("contact.firstName \(contact.firstName)")
+            
+        }
+        
         allUsersOnService.append(currentUser)
         
         tableView.delegate = self ; tableView.dataSource = self
@@ -135,12 +140,13 @@ extension ViewController : UITableViewDataSource {
         }
         
         // 3. Simulated query
-        let userEmails = emailQuery(users: allUsers)
+        let userEmails = emailQuery(users: allUsers) //returns all the users on our database
         
         var suggestedUsersToFollow:[DetectedUser] = [ ]
         var contactsToInvite:[ContactToInvite] = [ ]
         
         //for finding users we have not followed yet
+        
         for email in contactEmails {
             if userEmails.contains(email) && !userFollowingEmails.contains(email) {
                 for contact in userContacts {
@@ -160,19 +166,23 @@ extension ViewController : UITableViewDataSource {
                 
             }
             
-            //for inviting new contacts to the service
-            if !userEmails.contains(email) {
-                for contact in userContacts {
-                    if contact.emails.contains(email) {
-                        contactsToInvite.append(contact)
-                        
-                    }
-                    
-                }
+        }
+        
+        
+        for contact in userContacts {
+            let emails = contact.emails
+            let contactCheck = check(contactEmails: emails, toSeeIfPartOfUserEmails: userEmails)
+            if contactCheck == false {
+                contactsToInvite.append(contact)
                 
             }
-                
+            
         }
+        
+        for contact in contactsToInvite {
+            print("firstNameToInvite\(contact.firstName)")
+        }
+        
         
         let tableViewData:TableViewData = (suggestedUsersToFollow, contactsToInvite)
         
@@ -190,6 +200,22 @@ extension ViewController : UITableViewDataSource {
         return userEmails
         
     }
+    
+    private func check(contactEmails emails:[Email], toSeeIfPartOfUserEmails userEmails: [Email]) -> Bool? {
+        
+        var bool:Bool! = false
+        
+        for email in emails {
+            if userEmails.contains(email) {
+                bool = true
+            }
+            
+        }
+        
+        return bool
+
+    }
+
     
     private func queryForUserNameFromUsers(users users:[User], withEmail email: Email) -> Username {
         
