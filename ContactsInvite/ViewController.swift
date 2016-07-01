@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     typealias Name = String
     typealias Email = String
     typealias PhoneNumber = String
+    typealias Username = String
     
     var currentUser:OurPhoneUser!
     var allUsersOnService:[User] = [ ]
@@ -91,9 +92,9 @@ extension ViewController : UITableViewDelegate {
 extension ViewController : UITableViewDataSource {
     
     typealias ContactToInvite = Contact
-    typealias TableViewData = (DetectedUser, ContactToInvite)
+    typealias TableViewData = ([DetectedUser], [ContactToInvite])
     
-    func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewData  {
+    func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewData {
         
         /*
          im going to have to write this one out. theres a lot that we have to cover here because of the way that you would normally query for a data base.
@@ -108,18 +109,17 @@ extension ViewController : UITableViewDataSource {
         
         // 1. who the user is following
         let userFollowing:[User] = currentUser.following
-        let userFollowingEmails:[Email]!
+        var userFollowingEmails:[Email] = [ ]
         
         for user in userFollowing {
             let email = user.email
             userFollowingEmails.append(email)
             
         }
-        
-        
+    
         // 2. the users contacts and all associated emails
         let userContacts:[Contact] = currentUser.contacts
-        let contactEmails:[Email]!
+        var contactEmails:[Email] = [ ]
         
         for contact in userContacts {
             let emails = contact.emails
@@ -130,18 +130,57 @@ extension ViewController : UITableViewDataSource {
             
         }
         
-        
         // 3. Simulated query
-        let emails = emailQuery(allUsers: allUsers)
+        let userEmails = emailQuery(users: allUsers)
+        
+        var suggestedUsersToFollow:[DetectedUser] = [ ]
+        for email in contactEmails {
+            if userEmails.contains(email) && !userFollowingEmails.contains(email) {
+                for contact in userContacts {
+                    if contact.emails.contains(email) {
+                        
+                        let firstName = contact.firstName
+                        let lastName = contact.lastName
+                        
+                        let username = queryForUserNameFromUsers(users: allUsers, withEmail: email) // problem here... do we really want to query for a username every time in the loop? no.
+                        
+                        let userSuggestedToFollow:DetectedUser = DetectedUser(firstName: firstName, lastName: lastName, username: username, email: email)
+                        suggestedUsersToFollow.append(userSuggestedToFollow)
+                        
+                    }
+                    
+                }
+                
+            }
+                
+        }
+        
+    }
+
+    private func emailQuery(users users: [User]) -> [Email] {
+        var userEmails:[Email]! = [ ]
+        for user in users {
+            userEmails.append(user.email)
+            
+        }
+        
+        return userEmails
         
     }
     
-    private func emailQuery(allUsers users: [User]) -> [Email] {
-        let allUserEmails:[Email]
+    private func queryForUserNameFromUsers(users users:[User], withEmail email: Email) -> Username {
+        
+        var username:Username!
+        
         for user in users {
-            allUserEmails.append(user.email)
+            if user.email == email {
+                username = user.username
+                
+            }
             
         }
+        
+        return username
         
     }
     
@@ -150,18 +189,6 @@ extension ViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let count:Int!
-        
-        let usersInContactsOnServiceButDontKnowAbout = currentUser.contacts
-        
-        switch section {
-        case 0:
-            <#code#>
-        default:
-            <#code#>
-        }
-        
         
         return currentUser.followers.count
     }
@@ -191,7 +218,12 @@ class ContactsCell : UITableViewCell {
         self.contact = contact
         super.init(style: .Subtitle, reuseIdentifier: "cell")
         
-        textLabel?.text = contact.firstName + " " + contact.lastName
+        if let firstName = contact.firstName {
+            textLabel?.text = firstName
+            
+        }
+        
+        // need to add last name
         
     }
     

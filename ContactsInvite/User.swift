@@ -61,9 +61,9 @@ class DetectedUser: User {
     let firstName:Name?
     let lastName:Name?
     
-    init(firstName:Name?, lastName:Name, username: Username, email: Email, phoneNumber: PhoneNumber?) {
+    init(firstName:Name?, lastName:Name?, username: Username, email: Email) {
         self.firstName = firstName ; self.lastName = lastName
-        super.init(username: username, email: email, phoneNumber: phoneNumber)
+        super.init(username: username, email: email, phoneNumber: nil)
         
     }
     
@@ -75,8 +75,8 @@ class Contact  {
     typealias Email = String
     typealias PhoneNumber = String
     
-    let firstName:Name!
-    let lastName:Name!
+    let firstName:Name?
+    let lastName:Name?
     var emails:[Email]!
     var phoneNumbers:[PhoneNumber]!
     
