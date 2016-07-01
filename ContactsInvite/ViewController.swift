@@ -76,6 +76,8 @@ class ViewController: UIViewController {
         tableView.delegate = self ; tableView.dataSource = self
         searchBar.delegate = self
         
+        checkUserContactsAndService(ourUser: currentUser, allUsers: allUsersOnService)
+        
     }
 
 }
@@ -154,6 +156,18 @@ extension ViewController : UITableViewDataSource {
             }
                 
         }
+        
+        for user in suggestedUsersToFollow {
+            let name = user.firstName
+            let username = user.username
+            let email = user.email
+            
+            print("name \(name), email \(email), username \(username)")
+        }
+        
+        let tableViewData:TableViewData = (suggestedUsersToFollow, userContacts)
+        
+        return tableViewData
         
     }
 
