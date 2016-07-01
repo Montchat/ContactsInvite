@@ -14,10 +14,16 @@ class ViewController: UIViewController {
     typealias Email = String
     typealias PhoneNumber = String
     typealias Username = String
+    typealias TableViewData = ([DetectedUser], [ContactToInvite])
     
     var currentUser:OurPhoneUser!
     var allUsersOnService:[User] = [ ]
-
+    var tableViewData:TableViewData! { didSet {
+        tableView.reloadData()
+        
+        }
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -71,17 +77,13 @@ class ViewController: UIViewController {
         
         currentUser = OurPhoneUser(username: "Karl", email: "Karl@mail.com", phoneNumber: "(555) - 555 - 5555", contacts: contacts, following: following, followers: followers)
         
-        for contact in currentUser.contacts {
-            print("contact.firstName \(contact.firstName)")
-            
-        }
-        
         allUsersOnService.append(currentUser)
         
         tableView.delegate = self ; tableView.dataSource = self
         searchBar.delegate = self
         
-        checkUserContactsAndService(ourUser: currentUser, allUsers: allUsersOnService)
+        let tableViewData = checkUserContactsAndService(ourUser: currentUser, allUsers: allUsersOnService)
+        self.tableViewData = tableViewData
         
     }
 
@@ -99,7 +101,6 @@ extension ViewController : UITableViewDelegate {
 extension ViewController : UITableViewDataSource {
     
     typealias ContactToInvite = Contact
-    typealias TableViewData = ([DetectedUser], [ContactToInvite])
     
     func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewData {
         
@@ -179,11 +180,6 @@ extension ViewController : UITableViewDataSource {
             
         }
         
-        for contact in contactsToInvite {
-            print("firstNameToInvite\(contact.firstName)")
-        }
-        
-        
         let tableViewData:TableViewData = (suggestedUsersToFollow, contactsToInvite)
         
         return tableViewData
@@ -234,19 +230,43 @@ extension ViewController : UITableViewDataSource {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return currentUser.followers.count
+        let detectedUsers = tableViewData.0
+        let contactsToInvite = tableViewData.1
+        
+        switch section {
+        case 0:
+            return detectedUsers.count
+        case 1:
+            return contactsToInvite.count
+        default:
+            return 1
+        }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = ContactsCell(contact:currentUser.contacts[indexPath.row])
+        let detectedUsers = tableViewData.0
+        let contactsToInvite = tableViewData.1
         
-        return cell
+        let section = indexPath.section
+        
+        switch section {
+        case 0:
+            let cell = DetectedUserCell(user: detectedUsers[indexPath.row])
+            return cell
+        case 1:
+            let cell = ContactsCell(contact: contactsToInvite[indexPath.row])
+            return cell
+        default:
+            return UITableViewCell()
+        }
+        
         
     }
     
@@ -255,6 +275,36 @@ extension ViewController : UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
+    }
+    
+}
+
+class DetectedUserCell : UITableViewCell {
+    
+    typealias Name = String
+    typealias Username = String
+    
+    let user:DetectedUser!
+    
+    init(user:DetectedUser) {
+        self.user = user
+        super.init(style: .Subtitle, reuseIdentifier: "cell")
+        
+        var name:Name = Name()
+        let username:Username = user.username
+        
+        if let firstName = user.firstName {
+            name = firstName
+        }
+        
+        textLabel?.text = name
+        
+        detailTextLabel?.text = username
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
