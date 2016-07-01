@@ -90,7 +90,10 @@ extension ViewController : UITableViewDelegate {
 
 extension ViewController : UITableViewDataSource {
     
-    func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewUser {
+    typealias ContactToInvite = Contact
+    typealias TableViewData = (DetectedUser, ContactToInvite)
+    
+    func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewData  {
         
         let currentUser = currentUser.contacts
         

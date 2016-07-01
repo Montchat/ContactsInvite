@@ -59,10 +59,10 @@ class DetectedUser: User {
     typealias Name = String
     
     let firstName:Name?
-    let lastName:Name? 
+    let lastName:Name?
     
-    init(firstName:Name?, username: Username, email: Email, phoneNumber: PhoneNumber?) {
-        self.name = name
+    init(firstName:Name?, lastName:Name, username: Username, email: Email, phoneNumber: PhoneNumber?) {
+        self.firstName = firstName ; self.lastName = lastName
         super.init(username: username, email: email, phoneNumber: phoneNumber)
         
     }
@@ -89,4 +89,3 @@ class Contact  {
     }
     
 }
-
