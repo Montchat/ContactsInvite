@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     typealias PhoneNumber = String
     
     var currentUser:OurPhoneUser!
+    var allUsersOnService:[User] = [ ]
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -45,11 +46,20 @@ class ViewController: UIViewController {
             
             switch firstName {
                 
-            case "Allen", "Travis" , "Ursula", "Vick":
+            case "Allen", "Travis" , "Ursula", "Vick": //users that our user is following
+                
                 let user = User(username: firstName + "1990", email: email1, phoneNumber: phoneNumber)
                 
                 following.append(user)
                 followers.append(user)
+                
+                allUsersOnService.append(user)
+                
+            case "Bennett", "Evan", "Ian", "Farah" : //users that our user is not following but are on the service
+                
+            let user = User(username: firstName + "1990", email: email1, phoneNumber: phoneNumber)
+            
+                allUsersOnService.append(user)
                 
             default:
                 continue
@@ -59,6 +69,8 @@ class ViewController: UIViewController {
         }
         
         currentUser = OurPhoneUser(username: "Karl", email: "Karl@mail.com", phoneNumber: "(555) - 555 - 5555", contacts: contacts, following: following, followers: followers)
+        
+        allUsersOnService.append(currentUser)
         
         tableView.delegate = self ; tableView.dataSource = self
         searchBar.delegate = self
@@ -78,12 +90,30 @@ extension ViewController : UITableViewDelegate {
 
 extension ViewController : UITableViewDataSource {
     
+    func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewUser {
+        
+        let currentUser = currentUser.contacts
+        
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let count:Int!
+        
+        let usersInContactsOnServiceButDontKnowAbout = currentUser.contacts
+        
+        switch section {
+        case 0:
+            <#code#>
+        default:
+            <#code#>
+        }
+        
+        
         return currentUser.followers.count
     }
     

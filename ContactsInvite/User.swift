@@ -54,6 +54,21 @@ class OurPhoneUser: User {
     
 }
 
+class DetectedUser: User {
+    
+    typealias Name = String
+    
+    let firstName:Name?
+    let lastName:Name? 
+    
+    init(firstName:Name?, username: Username, email: Email, phoneNumber: PhoneNumber?) {
+        self.name = name
+        super.init(username: username, email: email, phoneNumber: phoneNumber)
+        
+    }
+    
+}
+
 class Contact  {
     
     typealias Name = String
