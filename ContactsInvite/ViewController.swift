@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     typealias Name = String
     typealias Email = String
     typealias PhoneNumber = String
+    
+    var currentUser:OurPhoneUser!
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -27,17 +29,39 @@ class ViewController: UIViewController {
         
         var contacts:[Contact] = [ ]
         
+        var following:[User] = [ ]
+        
+        var followers:[User] = [ ]
+        
         for i in 0..<firstNames.count {
             
+            let firstName = firstNames[i]
             let phoneNumber:PhoneNumber = "(555) 555-55" + "\(i)"
-            let email1:Email = "\(firstNames[i])" + "@mail.com"
-            let email2:Email = "\(firstNames[i])" + "@milkmail.com"
+            let email1:Email = "\(firstName)" + "@mail.com"
+            let email2:Email = "\(firstName)" + "@milkmail.com"
             
-            let contact = Contact(firstName: firstNames[i], lastName: lastName, emails: [email1, email2], phoneNumbers: [phoneNumber])
+            let contact = Contact(firstName: firstName, lastName: lastName, emails: [email1, email2], phoneNumbers: [phoneNumber])
             
             contacts.append(contact)
             
+            switch firstName {
+                
+            case "Allen", "Travis" , "Ursula", "Vick":
+                let user = User(name: firstName, email: email1, phoneNumber: phoneNumber)
+                
+                following.append(user)
+                followers.append(user)
+                
+            default:
+                continue
+                
+            }
+            
         }
+        
+        currentUser = OurPhoneUser(name: "Karl", email: "Karl@mail.com", phoneNumber: "(555) - 555 - 5555", contacts: contacts, following: following, followers: followers)
+        
+        print(currentUser) 
         
     }
 
