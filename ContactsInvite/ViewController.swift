@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         tableView.reloadData()
         
         }
+        
     }
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -249,6 +250,18 @@ extension ViewController : UITableViewDataSource {
         
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Users in your contacts"
+        case 1:
+            return "Invite your friends!"
+        default:
+            return nil
+        }
+        
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let detectedUsers = tableViewData.0
@@ -290,6 +303,25 @@ class DetectedUserCell : UITableViewCell {
         self.user = user
         super.init(style: .Subtitle, reuseIdentifier: "cell")
         
+        let followButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+        
+        followButton.center.y = center.y
+        followButton.setTitle("Follow", forState: .Normal)
+        followButton.titleLabel?.font = UIFont.systemFontOfSize(13)
+        followButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        followButton.imageEdgeInsets.left = 50
+        followButton.imageEdgeInsets.right = -50
+        followButton.titleEdgeInsets.right = 25
+        followButton.titleEdgeInsets.left = -25
+        followButton.setTitleColor(self.textLabel?.textColor, forState: .Normal)
+        if let img = UIImage(named: "FakeAdd") {
+            followButton.setImage(img, forState: .Normal)
+        }
+        
+        followButton.frame.origin.x = bounds.maxX - 58
+        
+        addSubview(followButton)
+        
         var name:Name = Name()
         let username:Username = user.username
         
@@ -298,9 +330,8 @@ class DetectedUserCell : UITableViewCell {
         }
         
         textLabel?.text = name
-        
         detailTextLabel?.text = username
-        
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -322,7 +353,18 @@ class ContactsCell : UITableViewCell {
             
         }
         
-        // need to add last name
+        let inviteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+        
+        inviteButton.center.y = center.y
+        inviteButton.setTitle("Invite", forState: .Normal)
+        inviteButton.titleLabel?.font = UIFont.systemFontOfSize(13)
+        inviteButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        inviteButton.imageEdgeInsets.left = 50
+        inviteButton.imageEdgeInsets.right = -50
+        inviteButton.titleEdgeInsets.right = 25
+        inviteButton.titleEdgeInsets.left = -25
+        inviteButton.setTitleColor(self.textLabel?.textColor, forState: .Normal)
+
         
     }
     
