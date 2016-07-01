@@ -105,6 +105,8 @@ extension ViewController : UITableViewDataSource {
          1) who the user is following
          2) the users contacts and all associated emails
          3) use this to query all of the emails associated with the user --> we will have to simulate this with logic
+         a. get the detected users on the service that the user needs to follow
+         b. discover who the contacts of the users are that have not donwloaded the application and figure out who we need to invite
   
         */
         
@@ -136,6 +138,9 @@ extension ViewController : UITableViewDataSource {
         let userEmails = emailQuery(users: allUsers)
         
         var suggestedUsersToFollow:[DetectedUser] = [ ]
+        var contactsToInvite:[ContactToInvite] = [ ]
+        
+        //for finding users we have not followed yet
         for email in contactEmails {
             if userEmails.contains(email) && !userFollowingEmails.contains(email) {
                 for contact in userContacts {
@@ -154,18 +159,22 @@ extension ViewController : UITableViewDataSource {
                 }
                 
             }
+            
+            //for inviting new contacts to the service
+            if !userEmails.contains(email) {
+                for contact in userContacts {
+                    if contact.emails.contains(email) {
+                        contactsToInvite.append(contact)
+                        
+                    }
+                    
+                }
+                
+            }
                 
         }
         
-        for user in suggestedUsersToFollow {
-            let name = user.firstName
-            let username = user.username
-            let email = user.email
-            
-            print("name \(name), email \(email), username \(username)")
-        }
-        
-        let tableViewData:TableViewData = (suggestedUsersToFollow, userContacts)
+        let tableViewData:TableViewData = (suggestedUsersToFollow, contactsToInvite)
         
         return tableViewData
         
