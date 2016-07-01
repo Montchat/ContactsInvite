@@ -95,7 +95,21 @@ extension ViewController : UITableViewDataSource {
     
     func checkUserContactsAndService(ourUser currentUser:OurPhoneUser, allUsers:[User]) -> TableViewData  {
         
-        let currentUser = currentUser.contacts
+        let userFollowing:[User] = currentUser.following
+        let userFollowingEmails:[Email]!
+        
+        for user in userFollowing {
+            let email = user.email
+            userFollowingEmails.append(email)
+            
+        }
+        
+        let allUserEmails:[Email]
+        
+        for user in allUsers {
+            allUserEmails.append(user.email)
+            
+        }
         
     }
     
