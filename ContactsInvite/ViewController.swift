@@ -102,7 +102,7 @@ extension ViewController : UITableViewDataSource {
          1) who the user is following
          2) the users contacts and all associated emails
          3) use this to query all of the emails associated with the user --> we will have to simulate this with logic
- 
+  
         */
         
         
@@ -116,8 +116,10 @@ extension ViewController : UITableViewDataSource {
             
         }
         
+        
+        // 2. the users contacts and all associated emails
         let userContacts:[Contact] = currentUser.contacts
-        let contactEmails:[Email]! 
+        let contactEmails:[Email]!
         
         for contact in userContacts {
             let emails = contact.emails
@@ -129,10 +131,16 @@ extension ViewController : UITableViewDataSource {
         }
         
         
-        let allUserEmails:[Email]
+        // 3. Simulated query
+        let emails = emailQuery(allUsers: allUsers)
         
-        for user in allUsers {
+    }
+    
+    private func emailQuery(allUsers users: [User]) -> [Email] {
+        let allUserEmails:[Email]
+        for user in users {
             allUserEmails.append(user.email)
+            
         }
         
     }
